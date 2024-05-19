@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ReactComponent as Logo } from './logo.svg';
-import Layout from './layout';
+import Layout from './layout/Layout';
 import Home from './pages/Home';
 import Home2 from './pages/Home2';
 

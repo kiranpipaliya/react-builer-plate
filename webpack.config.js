@@ -9,28 +9,24 @@ module.exports = {
 			assets: path.resolve(__dirname, 'src/assets'),
 			store: path.resolve(__dirname, 'src/store'),
 		},
-		extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+		extensions: ['.js', '.jsx', '.json'],
 	},
 	module: {
 		rules: [
 			{
-				test: /\.svg$/i,
-				issuer: /\.[jt]sx?$/,
-				use: [{ loader: '@svgr/webpack', options: { icon: true } }],
-			},
-			{
-				test: /\.scss$/,
+				test: /\.svg$/,
 				use: [
-					'style-loader',
-					'css-loader',
-					'postcss-loader',
 					{
-						loader: 'sass-loader',
+						loader: '@svgr/webpack',
 						options: {
-							additionalData: `@import "src/_variables.scss";`,
+							icon: true,
 						},
 					},
 				],
+			},
+			{
+				test: /\.css$/i,
+				use: ['style-loader', 'css-loader', 'postcss-loader'],
 			},
 		],
 	},
